@@ -20,7 +20,6 @@ class DrawingView: UIView
      // Drawing code
         createStickFigure().stroke()
         drawTurtle().stroke()
-        drawHat().stroke()
     }
     
     private func createStickFigure() -> UIBezierPath
@@ -29,7 +28,8 @@ class DrawingView: UIView
         
         UIColor.blue.setStroke()
         figure.lineWidth = 8.0
-       
+        figure.move(to: CGPoint(x: 200, y: 220))
+        figure.addLine(to: CGPoint(x: 300, y: 270))
         figure.addArc(withCenter: CGPoint(x: 200, y: 200),
                       radius: CGFloat(20),
                       startAngle: CGFloat(0),
@@ -61,21 +61,6 @@ class DrawingView: UIView
         
         return logo
     }
-    /*
-     //HAT METHOD
-    private func drawHat() -> UIBezierPath
-    {
-        let hat : UIBezierPath = UIBezierPath()
-        UIColor.blue.setStroke()
-        hat.move(to: CGPoint(x: 440, y: 550))
-        hat.addLine(to: CGPoint(x:350, y: 550))
-        
-        
-        hat.close()
-        hat.fill()
-        
-        return hat
-     */
-    }
+    
 
 }
