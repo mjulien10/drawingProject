@@ -8,10 +8,45 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
+private let reuseIdentifier = "artIdntifier"
 
-public class ArtCollectionCollectionViewController: UICollectionViewController {
-
+public class ArtCollectionCollectionViewController: UICollectionViewController
+{
+    private let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
+    private let itemsPerRowCompact : CGFloat = 4
+    private let itemsPerRowNormal : CGFloat = 6
+    
+    private let creativeCS : [UIImage?] =
+    {
+        return [
+            UIImage(named: "MichaelOctocat"),
+            UIImage(named: "MichaelOctocat"),
+            UIImage(named: "MichaelOctocat"),
+            UIImage(named: "MichaelOctocat"),
+            UIImage(named: "MichaelOctocat"),
+            UIImage(named: "MichaelOctocat"),
+            UIImage(named: "MichaelOctocat"),
+            UIImage(named: "MichaelOctocat"),
+            UIImage(named: "MichaelOctocat"),
+            UIImage(named: "MichaelOctocat"),
+        ]
+    }()
+    
+    private let labels : [String] =
+    {
+        return [
+            "This",
+            "needs",
+            "to",
+            "be",
+            "one",
+            "to",
+            "one",
+            "with",
+            "creativeCS",
+            "above"
+        ]
+    }()
    public override func viewDidLoad() {
         super.viewDidLoad()
 
