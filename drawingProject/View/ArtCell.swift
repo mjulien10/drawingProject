@@ -1,5 +1,5 @@
 //
-//  ArtCollectionCollectionViewController.swift
+//  ArtCell.swift
 //  drawingProject
 //
 //  Created by Julien, Michael on 11/7/18.
@@ -8,46 +8,11 @@
 
 import UIKit
 
-private let reuseIdentifier = "artIdntifier"
+private let reuseIdentifier = "artCell"
 
-public class ArtCollectionCollectionViewController: UICollectionViewController
-{
-    private let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
-    private let itemsPerRowCompact : CGFloat = 4
-    private let itemsPerRowNormal : CGFloat = 6
-    
-    private let creativeCS : [UIImage?] =
-    {
-        return [
-            UIImage(named: "MichaelJulienJavaHaiku"),
-            UIImage(named: "MichaelJulienSwiftHaiku"),
-            UIImage(named: "MichaelJulienMainframeHaiku"),
-            UIImage(named: "MichaelJulienOctocat")
-            //UIImage(named: ""),
-            //UIImage(named: ""),
-            //UIImage(named: ""),
-            //UIImage(named: ""),
-            //UIImage(named: ""),
-            //UIImage(named: "")
-        ]
-    }()
-    
-    private let labels : [String] =
-    {
-        return [
-            "This",
-            "needs",
-            "to",
-            "be",
-            "one",
-            "to",
-            "one",
-            "with",
-            "creativeCS",
-            "above"
-        ]
-    }()
-   public override func viewDidLoad() {
+class ArtCell: UICollectionViewController {
+
+    override func viewDidLoad() {
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
@@ -59,7 +24,7 @@ public class ArtCollectionCollectionViewController: UICollectionViewController
         // Do any additional setup after loading the view.
     }
 
-   public override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
@@ -76,23 +41,23 @@ public class ArtCollectionCollectionViewController: UICollectionViewController
 
     // MARK: UICollectionViewDataSource
 
-   public override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+    public override func numberOfSections(in collectionView: UICollectionView) -> Int {
+       
+        return 1
     }
 
 
-   public override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return 0
+    public override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section:  Int) -> Int {
+        return creativeCS.count
     }
 
-   public override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ArtCell
     
-        // Configure the cell
-    
-        return cell
+       artCell.backgroundColor = .purple
+        artCell.artImage.image = creativeCS[indexPath.row]
+    artCell.artLabel.text = labels[indexPath.row]
+        return artCell
     }
 
     // MARK: UICollectionViewDelegate
