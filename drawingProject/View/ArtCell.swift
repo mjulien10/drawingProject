@@ -52,7 +52,7 @@ class ArtCell: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ArtCell
+        let artCell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ArtCell
     
        artCell.backgroundColor = .purple
         artCell.artImage.image = creativeCS[indexPath.row]
